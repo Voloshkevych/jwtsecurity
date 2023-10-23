@@ -40,7 +40,7 @@ public class AuthenticationController {
       throw new Exception("Incorrect username or password", e);
     }
 
-    final UserDetails userDetails = userEntityServiceImpl
+    UserDetails userDetails = userEntityServiceImpl
         .loadUserByUsername(authenticationRequest.getUsername());
 
     final Role role = userEntityServiceImpl.getUserEntityByUsername(authenticationRequest.getUsername()).getRole();

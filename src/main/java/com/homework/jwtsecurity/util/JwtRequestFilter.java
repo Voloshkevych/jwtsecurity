@@ -32,7 +32,7 @@ public class JwtRequestFilter extends GenericFilterBean {
 
     HttpServletRequest request = (HttpServletRequest) servletRequest;
     HttpServletResponse response = (HttpServletResponse) servletResponse;
-    final String authorizationHeader = request.getHeader("Authorization");
+    String authorizationHeader = request.getHeader("Authorization");
 
     String username = null;
     String jwt = null;

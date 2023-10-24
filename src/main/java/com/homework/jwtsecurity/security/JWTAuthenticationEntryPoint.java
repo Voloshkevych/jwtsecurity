@@ -19,10 +19,14 @@ public class JWTAuthenticationEntryPoint implements AuthenticationEntryPoint {
   public void commence(HttpServletRequest request, HttpServletResponse response,
       AuthenticationException authException) throws IOException {
 
+    System.out.println("Authentication failed: " + authException.getMessage());
+    System.out.println("Request URI: " + request.getRequestURI());
+
     Map<String, Object> data = new HashMap<>();
     data.put("timestamp", LocalDateTime.now().toString());
     data.put("status", HttpServletResponse.SC_UNAUTHORIZED);
     data.put("error", "Unauthorized");
+    data.put("message", authException.getMessage());
     data.put("path", request.getRequestURI());
 
     String json = new ObjectMapper().writeValueAsString(data);

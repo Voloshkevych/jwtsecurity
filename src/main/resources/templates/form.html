@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>CSRF</title>
+</head>
+<body>
+<h1>CSRF Test Form</h1>
+
+<form action="/submit-form" method="post">
+  <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username"><br><br>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password"><br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

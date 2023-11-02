@@ -32,13 +32,6 @@ public class FormController {
 
   @PostMapping("/submit-form")
   public ResponseEntity<String> submitForm(@RequestParam String username, @RequestParam String password) {
-
-//    if (csrfToken == null) {
-//      System.out.println("You are a failure!");
-//    } else {
-//      System.out.println("A surprise to be sure, but a welcome one");
-//      System.out.println("Your CSRF token: " + csrfToken.getToken());
-//    }
     try {
       Authentication authentication = authenticationManager.authenticate(
           new UsernamePasswordAuthenticationToken(username, password)
